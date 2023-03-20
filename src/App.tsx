@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'devextreme/dist/css/dx.light.css';
+import { CreateHTMLLayoutFromDataJs } from './components/viewHTMLTable/index';
+import { DownloadButton } from './components/downloadButton/index'
+import {items} from './data/data';
+import TabPanel, { Item } from 'devextreme-react/tab-panel';
+import { CreateDataGridLayoutFromDataJs } from './components/viewDataGridTable';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>Тестовый APP для excelJS проекта.</p>
+      <TabPanel>
+        <Item title='HTML Layout'>
+          <DownloadButton/>
+          <CreateHTMLLayoutFromDataJs items={items}/>
+        </Item>
+        <Item title='Datagrid Layout'>
+          <DownloadButton/>
+          <CreateDataGridLayoutFromDataJs items={items}/>
+        </Item>
+      </TabPanel>
+
+    </>
   );
 }
 
